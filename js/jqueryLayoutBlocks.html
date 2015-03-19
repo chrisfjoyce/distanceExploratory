@@ -1,0 +1,198 @@
+<html>
+<head>
+	<link href="css/sunny/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+	<script src="js/jquery-1.10.2.js"></script>
+	<script src="js/jquery-ui-1.10.4.custom.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3ksEmQ1hvVEy8qTad7nCVWGfykKLJH4s&sensor=true"></script>		
+	<script src="js/rickshaw.min.js"></script>	
+	<script src="js/d3.min.js"></script>
+
+
+	
+<style>
+H1 {display: inline;}
+H2 {display: inline;}
+H3 {display: inline;}
+body {
+    margin: 0px;
+    padding: 10px;
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 12;
+}
+div#header {
+    clear: both;
+    height: 50px;
+    background-color: gold;
+}
+div.graphContainer{
+	background-color: white;
+}
+div.graphTitle{
+	background-color: black;
+	height: 50px;
+}
+div.graphVertContainer{
+	float: left;
+	padding: 10px;
+	width: 90px;
+	
+}
+div.graphYSlider {
+    height: 400px;
+}
+div.graphXSlider{
+    clear: both;
+    position: relative;
+    left: 40px;
+    width: 800px;
+}
+div.graphControls {
+    float: right;
+    width: 250px;
+}
+div#graphControlsMap{
+	width: 225px;
+	height: 400px;
+}
+div.graphControlsLegend{
+	width: 250px;
+    background-color: orange;	
+	
+}
+div.graph {
+    padding: 0px 160px 20px 160px;
+    margin: 0px;
+    height: 400px;
+    width:650px;    
+    background-color: rgba(238,239,235,0.25);
+}
+div#footer {
+    clear: both;
+    background-color: gold;
+    height: 50px;
+}
+</style>
+</head>
+<body>
+<script>
+$(document).ready(function() {
+
+	$( ".graphControls" ).tabs();
+    $(".graphXSlider").slider({
+	    range: true,
+        min: 0,
+        max: 100,
+        step: 1,
+        values: [0, 100],
+        slide: function(event, ui) {
+            for (var i = 0; i < ui.values.length; ++i) {
+                $("input.sliderValue[data-index=" + i + "]").val(ui.values[i]);
+            }
+        }
+    });
+
+    $("input.sliderValue").change(function() {
+        var $this = $(this);
+        $(".slider").slider("values", $this.data("index"), $this.val());
+    });
+    
+    
+     $( ".graphYSlider" ).slider({
+      orientation: "vertical",
+      range: true,
+      min: 0,
+      max: 100,
+      step: 1,
+      values: [0, 100],
+      slide: function( event, ui ) {
+        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+      }
+    });
+    
+    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+    
+    
+    $( ".graphControlsPlotType" ).buttonset();
+    
+    var mapOptions = {
+			center: new google.maps.LatLng(55.0, -3.5),
+			zoom: 5,
+			scrollwheel: false,
+			streetViewControl: false,
+			mapTypeControl: false	};
+			
+	var map = new google.maps.Map(document.getElementById("graphControlsMap"),mapOptions);
+	
+	
+	
+    
+});
+</script>
+<div id="header"> <h1>Distance Exploratory</h1> </div>
+
+
+
+<div class="graphContainer">
+	<div class="graphTitle"><h2><font color="White">Unit Name (Symbol), From: x Until: y</font></h2></div>
+	<div class = "graphVertContainer">
+		<div class="graphYSlider"></div>
+	</div>
+	<div class="graphControls">	
+		<ul>
+
+			<li><a href="#graphControlsMap">Map</a></li>
+			<li><a href="#graphLegend">Control</a></li>			
+			<li><a href="#graphDisplayCtrls">Display</a></li>
+
+		</ul>
+	
+	
+		<div id="graphControlsMap"> </div>
+
+		<div id="graphDisplayCtrls">
+			<form style="margin-top: 1em;">
+			<input type="radio" id="radio1" name="radio" checked="checked"><label for="radio1">ScatterPlot</label>
+			<input type="radio" id="radio2" name="radio"><label for="radio2">Line Graph</label>
+			</form>
+		</div>
+		
+		<div id="graphLegend">
+			<h3>Legend</h3>
+			<br>Graph 1
+			<br>Graph 2
+		</div>
+	
+	
+	</div>
+	
+	<div id="graph"></div>
+	<div class="graphXSlider"></div>
+	<br>
+</div>	
+
+<div id="footer">
+    Footer text...
+</div>
+<script>
+	var graph = new Rickshaw.Graph( {
+    element: document.querySelector("#graph"), 
+    width: 500, 
+    height: 200, 
+    series: [{
+        color: 'steelblue',
+        data: [ 
+            { x: 0, y: 40 }, 
+            { x: 1, y: 49 }, 
+            { x: 2, y: 38 }, 
+            { x: 3, y: 30 }, 
+            { x: 4, y: 32 } ]
+	    }]
+	});
+
+	graph.render();
+
+</script>
+
+</body>
+</html>

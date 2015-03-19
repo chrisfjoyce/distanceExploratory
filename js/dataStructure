@@ -1,0 +1,35 @@
+[Log] [ (generic.php, line 211)
+Object
+items: Array[2]
+0: Object
+col: "#F15854"
+csv: Object
+	csvContent: "data:text/csv;charset=utf-8,Atmospheric_pressure etc
+	uri: "data:text/csv;charset=utf-8,Atmospheric_pressure%0Adate
+
+dataPoints: Array[475]
+feedId: 1734847623
+loc: Object
+	domain: "physical"
+	lat: 51.3795743439755
+	lon: -2.37496820845945
+	name: "Hayesfield School"
+
+parsedData: Array[475]
+stats: Object
+	max: 1016.26
+	mean: 1006.982084210526
+	median: 1008.13
+	min: 996.95
+	mode: Array[1]
+		0: 1008.81
+	variance: 26.573445129750706
+
+metaData: Object
+	id: "Atmospheric_pressure"
+	max: 1060
+	min: 940
+	unit: Object
+	label: "milli bar"
+	symbol: "mbar"
+	type: "basicSI"
