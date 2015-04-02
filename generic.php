@@ -43,7 +43,7 @@
 <!-- Includes -->
 	<!-- JQuery -->
 	<script src="js/jquery-1.10.2.js"></script>
-	<script src="js/jquery-ui-1.10.4.custom.js"></script>
+	<script src="js/jquery-ui-1.10.4.custom.min.js"></script>
 	
 	<!-- Moment.js Time based library -->
 	<script src="js/moment.min.js"></script>
@@ -78,7 +78,6 @@
 	<script src="js/Rickshaw.Fixtures.Time.js"></script>
 	<script src="js/Rickshaw.Fixtures.Time.Local.js"></script>
 	<script src="js/Rickshaw.Fixtures.Number.js"></script>
-	<script src="js/Rickshaw.Fixtures.RandomData.js"></script>
 	<script src="js/Rickshaw.Fixtures.Color.js"></script>
 	<script src="js/Rickshaw.Color.Palette.js"></script>
 	<script src="js/Rickshaw.Graph.Axis.Y.js"></script>
@@ -87,14 +86,14 @@
 	<!--Mapbox -->
 	<script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.js'></script>
 	<script src='http://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
-	<script src="http://d23cj0cdvyoxg0.cloudfront.net/xivelyjs-1.0.3.min.js"></script>  	
+	<script src='http://d23cj0cdvyoxg0.cloudfront.net/xivelyjs-1.0.3.min.js'></script>  	
 	
 	<!-- Data Table -->		
 	<script src="js/jquery.dataTables1.9.4.min.js"></script>
 
 
 <!- CSS -->
-	<link href="css/sunny/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+	<link href="css/sunny/jquery-ui-1.10.4.custom.min.css" rel="stylesheet">
 	<link type="text/css" rel="stylesheet" href="css/graph.css">
 	<link type="text/css" rel="stylesheet" href="css/detail.css">
 	<link type="text/css" rel="stylesheet" href="css/legend.css">

@@ -9,11 +9,11 @@
 			$respJson = json_encode($response);			
 		?>
 		
-	<link href="css/sunny/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+	<link href="css/sunny/jquery-ui-1.10.4.custom.min.css" rel="stylesheet">
 	<link href="css/dataTablesNice.css" rel="stylesheet">	
 	
 	<script src="js/jquery-1.10.2.js"></script>
-	<script src="js/jquery-ui.js"></script>	
+	<script src="js/jquery-ui-1.10.4.custom.min.js"></script>
 	<script src="js/jquery.dataTables1.9.4.min.js"></script>
 
 	<!-- Map Box Links -->
