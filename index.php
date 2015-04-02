@@ -21,7 +21,6 @@
 	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
 	<script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.js'></script>
 	<script src='http://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
-	
 	<link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.css' rel='stylesheet'/>
 	<link href='http://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
 	<link href='http://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />	
@@ -37,7 +36,7 @@
 		$( "#startDate" ).datepicker({ 	maxDate: new Date, minDate: new Date(2014, 1, 1) });		
 		$( "#numDays" ).spinner({ min: 0, max: 9});
 		$( document ).tooltip();		
-		$( "#dataInterval" ).selectmenu();					
+		//$( "#dataInterval" ).selectmenu();
 	});
 	</script>	
 	
@@ -243,7 +242,6 @@
 			<h3>Pre-made Graphs</h3>
 	<div>
 		<ul>
-			<li><a href="../GPRSLogbook/groupedFeeds.html" target="_blank">Urban, Rural & Suburban Temperature chart  from Birmingham</a></li>
 			<li><a href="../GPRSLogbook/index.htm" target="_blank">GPRS Log Book Status Page</a></li>			
 			<li><a href="smartStreets.php" target="_blank">Smart Streets Catalog</a></li>
 			<li><a href="streetLights.php"target="_blank">Street Lights London from IoT-Bay <i>(20k + lights so this will take a few seconds to load)
