@@ -1,0 +1,56 @@
+h2 {line-height: 1.4; padding: 0.5em }
+.map { height: 270px; width:445px; }
+.rickshaw_graph .detail .item { line-height: 1.4; padding: 0.5em }
+.rickshaw_graph .detail .x_label { display: none }
+.detail_swatch { float: left; display: inline-block; width: 10px; height: 10px; margin: 0 4px 0 0 }
+
+table.statsTable { border-collapse:collapse; }
+table.statsTable td, table.statsTable th { border:1px solid #7E6B58 ;padding:5px; border-radius: 5px; }
+
+th{ background-color:LightGray;}
+
+
+div.graphControls {
+	float: right;
+	margin-left: 20px;
+}
+body{
+	background-color: ghostwhite;
+}	
+.chart_title{
+	height: 50px;
+	background-color: black;
+}
+.chart_container {
+	position: relative;
+	display: inline-block;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.y_axis{
+	float: left;
+	width: 40px;
+	height: 400px;	
+}		
+.chart {
+	float: left;
+}	
+.legend {
+	float: left;
+	margin-left: 15px;
+}	
+.graphYSlider {
+	float: left;
+	height: 400px;
+	margin-left: 20px;
+}	
+.graphXSlider{
+	clear: both;
+	position: relative;
+	left: 40px;
+	width: 550px;
+}	
+.offset_form {
+	float: left;
+	margin: 2em 0 0 15px;
+	font-size: 13px;
+}

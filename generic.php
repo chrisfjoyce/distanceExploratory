@@ -84,89 +84,36 @@
 	
 	
 	<!--Mapbox -->
-	<script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.js'></script>
-	<script src='http://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
-	<script src='http://d23cj0cdvyoxg0.cloudfront.net/xivelyjs-1.0.3.min.js'></script>  	
+	<script src="js/mapboxMin.js"></script>
+	<script src="js/mapboxClusterer.js"></script>
+	
+	<!--Xively -->
+	<script src="js/xivelyMin.js"></script>  	
 	
 	<!-- Data Table -->		
 	<script src="js/jquery.dataTables1.9.4.min.js"></script>
 
 
 <!- CSS -->
-	<link href="css/sunny/jquery-ui-1.10.4.custom.min.css" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="css/sunny/jquery-ui-1.10.4.custom.min.css">
+	<link type="text/css" rel="stylesheet" href="css/dataTablesNice.css">		
+	<link type="text/css" rel="stylesheet" href="css/generic.css">			
+
+	<!--Rickshaw -->		
 	<link type="text/css" rel="stylesheet" href="css/graph.css">
 	<link type="text/css" rel="stylesheet" href="css/detail.css">
 	<link type="text/css" rel="stylesheet" href="css/legend.css">
-	<link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.css' rel='stylesheet' />
-	<link href='http://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
-	<link href='http://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />	
-	<link href="css/dataTablesNice.css" rel="stylesheet">	
+
+	<!--Mapbox -->
+	<link type="text/css" rel="stylesheet" href="https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.css">
+	<link type="text/css" rel="stylesheet" href="http://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css">
+	<link type="text/css" rel="stylesheet" href="http://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css">
 
 <!-- Meta Fun -->
 	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
 	<link rel="shortcut icon" href="http://www.iotschools.org.uk/favicon.ico"/>
 
 
-<!-- Additional Page Styles -->
-<style>
-h2 {line-height: 1.4; padding: 0.5em }
-.map { height: 270px; width:445px; }
-.rickshaw_graph .detail .item { line-height: 1.4; padding: 0.5em }
-.rickshaw_graph .detail .x_label { display: none }
-.detail_swatch { float: left; display: inline-block; width: 10px; height: 10px; margin: 0 4px 0 0 }
-
-table.statsTable { border-collapse:collapse; }
-table.statsTable td, table.statsTable th { border:1px solid #7E6B58 ;padding:5px; border-radius: 5px; }
-
-th{ background-color:LightGray;}
-
-
-div.graphControls {
-	float: right;
-	margin-left: 20px;
-}
-body{
-	background-color: ghostwhite;
-}	
-.chart_title{
-	height: 50px;
-	background-color: black;
-}
-.chart_container {
-	position: relative;
-	display: inline-block;
-	font-family: Arial, Helvetica, sans-serif;
-}
-.y_axis{
-	float: left;
-	width: 40px;
-	height: 400px;	
-}		
-.chart {
-	float: left;
-}	
-.legend {
-	float: left;
-	margin-left: 15px;
-}	
-.graphYSlider {
-	float: left;
-	height: 400px;
-	margin-left: 20px;
-}	
-.graphXSlider{
-	clear: both;
-	position: relative;
-	left: 40px;
-	width: 550px;
-}	
-.offset_form {
-	float: left;
-	margin: 2em 0 0 15px;
-	font-size: 13px;
-}
-
-</style>
 
 <script>
 // Global Variables

@@ -9,23 +9,25 @@
 			$respJson = json_encode($response);			
 		?>
 		
-	<link href="css/sunny/jquery-ui-1.10.4.custom.min.css" rel="stylesheet">
-	<link href="css/dataTablesNice.css" rel="stylesheet">	
 	
 	<script src="js/jquery-1.10.2.js"></script>
 	<script src="js/jquery-ui-1.10.4.custom.min.js"></script>
 	<script src="js/jquery.dataTables1.9.4.min.js"></script>
 
-	<!-- Map Box Links -->
-	
-	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
-	<script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.js'></script>
-	<script src='http://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
-	<link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.css' rel='stylesheet'/>
-	<link href='http://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
-	<link href='http://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />	
+	<!-- Map Box Links -->	
+	<script src="js/mapboxMin.js"></script>
+	<script src="js/mapboxClusterer.js"></script>
 
-	<!-- <link href="index.css" rel="stylesheet"> Remove CSS -->		
+	<link type="text/css" rel="stylesheet" href="css/sunny/jquery-ui-1.10.4.custom.min.css">
+	<link type="text/css" rel="stylesheet" href="css/dataTablesNice.css">		
+	<link type="text/css" rel="stylesheet" href="css/index.css">			
+
+	<!--Mapbox -->
+	<link type="text/css" rel="stylesheet" href="https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.css">
+	<link type="text/css" rel="stylesheet" href="http://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css">
+	<link type="text/css" rel="stylesheet" href="http://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css">
+
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
 	
 	<script>
 	// Set up JQuery Elements
@@ -39,106 +41,6 @@
 		//$( "#dataInterval" ).selectmenu();
 	});
 	</script>	
-	
-	<style>
-	select { width: 200px; } 
-		
-	.filter-ui {
-		background:#fff;
-		position:absolute;
-		top:10px;
-		right:10px;
-		z-index:100;
-		padding:10px;
-		border-radius:3px;
-	}	
-		
-	#tooltip
-	{
-	    text-align: center;
-	    color: #fff;
-	    background: #111;
-	    position: absolute;
-	    z-index: 100;
-	    padding: 15px;
-	}
-
- 
-    #tooltip.top:after
-    {
-        border-top-color: transparent;
-        border-bottom: 10px solid #111;
-        top: -20px;
-        bottom: auto;
-    }
-
-    #tooltip.left:after
-    {
-        left: 10px;
-        margin: 0;
-    }
-
-    #tooltip.right:after
-    {
-        right: 10px;
-        left: auto;
-        margin: 0;
-    }	
-		
-	#map { height: 320px; width: 480px; }
-	caption {
-		text-align: left;
-		background-color: #FFBF00;
-	}
-		
-	th { background-color: #3577FF;}
-	
-	body{
-		font: 75% "Trebuchet MS", sans-serif;
-		margin: 2px;
-	}
-	.demoHeaders {
-		margin-top: 2em;
-	}
-	#dialog-link {
-		padding: .4em 1em .4em 20px;
-		text-decoration: none;
-		position: relative;
-	}
-	#dialog-link span.ui-icon {
-		margin: 0 5px 0 0;
-		position: absolute;
-		left: .2em;
-		top: 50%;
-		margin-top: -8px;
-	}
-	#icons {
-		margin: 0;
-		padding: 0;
-	}
-	#icons li {
-		margin: 2px;
-		position: relative;
-		padding: 4px 0;
-		cursor: pointer;
-		float: left;
-		list-style: none;
-	}
-	
-	#icons span.ui-icon {
-		float: left;
-		margin: 0 4px;
-	}
-	
-	
-    #headerImg{ background-color: #FFBF00; }    
-	ul{ list-style-type: none;}
-
-	
-	
-			
-	</style>
-	
 
 	</head>
 	<body>
@@ -259,13 +161,6 @@
 <div>&nbsp;<br></div>
 
 
-
-<!-- Slider 
-
-<div id="accordion"></div>
--->
-
-
 </div>
 
 <h2 class="demoHeaders">Current Values for Live Devices</h2>
@@ -281,9 +176,6 @@
 	var sensorRecords 		= [];
 	var feedList			= [];
 	var extFeedList			= [];
-	
-
-	
 		
 	$(window).load(function(){
 		$( ".startDate" ).datepicker({ defaultDate: new Date() });	    
