@@ -9,24 +9,23 @@
 			$respJson = json_encode($response);			
 		?>
 		
-	
-	<script src="js/jquery-1.10.2.js"></script>
-	<script src="js/jquery-ui-1.10.4.custom.min.js"></script>
-	<script src="js/jquery.dataTables1.9.4.min.js"></script>
+	<!-- Java Script Includes -->
+	<script src="js/min/jquery-1.10.2-min.js"></script>
+	<script src="js/min/jquery-ui-1.10.4.custom.min.js"></script>
+	<script src="js/min/jquery.dataTables1.9.4.min.js"></script>
+	<script src="js/min/mapboxMin.js"></script>
+	<script src="js/min/mapboxClusterer-min.js"></script>
+	<script src="js/min/moment.min.js"></script>			
 
-	<!-- Map Box Links -->	
-	<script src="js/mapboxMin.js"></script>
-	<script src="js/mapboxClusterer.js"></script>
-
+	<!-- CSS Includes -->
 	<link type="text/css" rel="stylesheet" href="css/sunny/jquery-ui-1.10.4.custom.min.css">
 	<link type="text/css" rel="stylesheet" href="css/dataTablesNice.css">		
 	<link type="text/css" rel="stylesheet" href="css/index.css">			
 
-	<!--Mapbox -->
+		<!--Mapbox (External)-->
 	<link type="text/css" rel="stylesheet" href="https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.css">
 	<link type="text/css" rel="stylesheet" href="http://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css">
 	<link type="text/css" rel="stylesheet" href="http://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css">
-
 	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
 	
 	<script>
@@ -167,9 +166,6 @@
 <div id ="sensorTabs"></div>
 
 <div id="head"></div>
-
-	
-	<script src="js/moment.min.js"></script>			
 	<script type="text/javascript">
 		
 	var sensorRecord 		= [];
@@ -323,9 +319,7 @@
 
 
 			var a = mapDataStreams[i];
-			//console.log(a);
 			var myStart = moment().format('YYYY MM DD');
-			
 			var myEnd = moment();
 
 			var title = "<b><font color=\"#3ca0d3\">" + a.location.name +"</b></font><br>" 
@@ -362,7 +356,6 @@
 	}
 	
 	function assembleSensorTableBody(myDataStreams){
-
 		for (var p =0; p < myDataStreams.length; p++ ){
 			sensorRecord = [	myDataStreams[p].label, 
 								myDataStreams[p].location.name + " " +myDataStreams[p].channel,
@@ -547,9 +540,6 @@
 		{
 			currentObj = myDevices[i];
 			if (currentObj.hasOwnProperty("datastreams")){	
-				
-
-				
 				hasCoords = false;
 				locName ="Location Unknown";
 				feedHref = currentObj.id;

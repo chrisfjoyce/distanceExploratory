@@ -42,56 +42,56 @@
 
 <!-- Includes -->
 	<!-- JQuery -->
-	<script src="js/jquery-1.10.2.js"></script>
-	<script src="js/jquery-ui-1.10.4.custom.min.js"></script>
+	<script src="js/min/jquery-1.10.2-min.js"></script>
+	<script src="js/min/jquery-ui-1.10.4.custom.min.js"></script>
 	
 	<!-- Moment.js Time based library -->
-	<script src="js/moment.min.js"></script>
+	<script src="js/min/moment.min.js"></script>
 	
 	<!-- Statistics Package Used on a per feed level -->
-	<script src="js/jStats.js"></script>
+	<script src="js/min/jStats-min.js"></script>
 	
 	<!-- Rickshaw and D3 graphs -->
-	<script src="js/d3.min.js"></script>
-	<script src="js/d3.layout.min.js"></script>
-	<script src="js/Rickshaw.js"></script>
-	<script src="js/Rickshaw.Class.js"></script>
-	<script src="js/Rickshaw.Compat.ClassList.js"></script>
-	<script src="js/Rickshaw.Graph.js"></script>
-	<script src="js/Rickshaw.Graph.Renderer.js"></script>
-	<script src="js/Rickshaw.Graph.Renderer.Area.js"></script>
-	<script src="js/Rickshaw.Graph.Renderer.Line.js"></script>
-	<script src="js/Rickshaw.Graph.Renderer.Bar.js"></script>
-	<script src="js/Rickshaw.Graph.Renderer.ScatterPlot.js"></script>
-	<script src="js/Rickshaw.Graph.Renderer.Stack.js"></script>
-	<script src="js/Rickshaw.Graph.RangeSlider.js"></script>
-	<script src="js/Rickshaw.Graph.RangeSliderY.js"></script>		
-	<script src="js/Rickshaw.Graph.RangeSlider.Preview.js"></script>
-	<script src="js/Rickshaw.Graph.HoverDetail.js"></script>
-	<script src="js/Rickshaw.Graph.Annotate.js"></script>
-	<script src="js/Rickshaw.Graph.Legend.js"></script>
-	<script src="js/Rickshaw.Graph.Axis.Time.js"></script>
-	<script src="js/Rickshaw.Graph.Behavior.Series.Toggle.js"></script>
-	<script src="js/Rickshaw.Graph.Behavior.Series.Order.js"></script>
-	<script src="js/Rickshaw.Graph.Behavior.Series.Highlight.js"></script>
-	<script src="js/Rickshaw.Graph.Smoother.js"></script>
-	<script src="js/Rickshaw.Fixtures.Time.js"></script>
-	<script src="js/Rickshaw.Fixtures.Time.Local.js"></script>
-	<script src="js/Rickshaw.Fixtures.Number.js"></script>
-	<script src="js/Rickshaw.Fixtures.Color.js"></script>
-	<script src="js/Rickshaw.Color.Palette.js"></script>
-	<script src="js/Rickshaw.Graph.Axis.Y.js"></script>
+	<script src="js/min/d3.min.js"></script>
+	<script src="js/min/d3.layout.min.js"></script>
+	<script src="js/min/Rickshaw-min.js"></script>
+	<script src="js/min/Rickshaw.Class-min.js"></script>
+	<script src="js/min/Rickshaw.Compat.ClassList-min.js"></script>
+	<script src="js/min/Rickshaw.Graph-min.js"></script>
+	<script src="js/min/Rickshaw.Graph.Renderer-min.js"></script>
+	<script src="js/min/Rickshaw.Graph.Renderer.Area-min.js"></script>
+	<script src="js/min/Rickshaw.Graph.Renderer.Line-min.js"></script>
+	<script src="js/min/Rickshaw.Graph.Renderer.Bar-min.js"></script>
+	<script src="js/min/Rickshaw.Graph.Renderer.ScatterPlot-min.js"></script>
+	<script src="js/min/Rickshaw.Graph.Renderer.Stack-min.js"></script>
+	<script src="js/min/Rickshaw.Graph.RangeSlider-min.js"></script>
+	<script src="js/min/Rickshaw.Graph.RangeSliderY-min.js"></script>		
+	<script src="js/min/Rickshaw.Graph.RangeSlider.Preview-min.js"></script>
+	<script src="js/min/Rickshaw.Graph.HoverDetail-min.js"></script>
+	<script src="js/min/Rickshaw.Graph.Annotate-min.js"></script>
+	<script src="js/min/Rickshaw.Graph.Legend-min.js"></script>
+	<script src="js/min/Rickshaw.Graph.Axis.Time-min.js"></script>
+	<script src="js/min/Rickshaw.Graph.Behavior.Series.Toggle-min.js"></script>
+	<script src="js/min/Rickshaw.Graph.Behavior.Series.Order-min.js"></script>
+	<script src="js/min/Rickshaw.Graph.Behavior.Series.Highlight-min.js"></script>
+	<script src="js/min/Rickshaw.Graph.Smoother-min.js"></script>
+	<script src="js/min/Rickshaw.Fixtures.Time-min.js"></script>
+	<script src="js/min/Rickshaw.Fixtures.Time.Local-min.js"></script>
+	<script src="js/min/Rickshaw.Fixtures.Number-min.js"></script>
+	<script src="js/min/Rickshaw.Fixtures.Color-min.js"></script>
+	<script src="js/min/Rickshaw.Color.Palette-min.js"></script>
+	<script src="js/min/Rickshaw.Graph.Axis.Y-min.js"></script>
 	
 	
 	<!--Mapbox -->
-	<script src="js/mapboxMin.js"></script>
-	<script src="js/mapboxClusterer.js"></script>
+	<script src="js/min/mapboxMin.js"></script>
+	<script src="js/min/mapboxClusterer-min.js"></script>
 	
 	<!--Xively -->
-	<script src="js/xivelyMin.js"></script>  	
+	<script src="js/min/xivelyMin.js"></script>  	
 	
 	<!-- Data Table -->		
-	<script src="js/jquery.dataTables1.9.4.min.js"></script>
+	<script src="js/min/jquery.dataTables1.9.4.min.js"></script>
 
 
 <!- CSS -->
@@ -155,8 +155,6 @@ function mainFlow(){
 	console.log("Sorted Data:");
 	console.log(sortedData);
 
-	//Set up each graph
-	//Draw Graphs	
 }
 
 function graphSetup(){
@@ -680,7 +678,7 @@ function notStatusStreams(myObj){
 }
 
 function getData(data){
-	//In future will break this into getXivelyData, getMetOfficeData etc.
+	//In future will break this into getXivelyData, getMetOfficeData, getAmazonData etc.
 	
 	if (typeof data !== "undefined") {
 	    if (data.hasOwnProperty("datapoints")){

@@ -1,0 +1,1 @@
+Rickshaw.namespace("Rickshaw.Graph.Socketio"),Rickshaw.Graph.Socketio=Rickshaw.Class.create(Rickshaw.Graph.Ajax,{request:function(){var a=io.connect(this.dataURL),c=this;a.on("rickshaw",function(a){c.success(a)})}});
