@@ -46,7 +46,7 @@
 	<script src="js/min/jquery-ui-1.10.4.custom.min.js"></script>
 	
 	<!-- Moment.js Time based library -->
-	<script src="js/min/moment.min.js"></script>
+	<script src="js/min/moment2-min.js"></script>
 	
 	<!-- Statistics Package Used on a per feed level -->
 	<script src="js/min/jStats-min.js"></script>
@@ -54,33 +54,33 @@
 	<!-- Rickshaw and D3 graphs -->
 	<script src="js/min/d3.min.js"></script>
 	<script src="js/min/d3.layout.min.js"></script>
-	<script src="js/min/Rickshaw-min.js"></script>
-	<script src="js/min/Rickshaw.Class-min.js"></script>
-	<script src="js/min/Rickshaw.Compat.ClassList-min.js"></script>
-	<script src="js/min/Rickshaw.Graph-min.js"></script>
-	<script src="js/min/Rickshaw.Graph.Renderer-min.js"></script>
-	<script src="js/min/Rickshaw.Graph.Renderer.Area-min.js"></script>
-	<script src="js/min/Rickshaw.Graph.Renderer.Line-min.js"></script>
-	<script src="js/min/Rickshaw.Graph.Renderer.Bar-min.js"></script>
-	<script src="js/min/Rickshaw.Graph.Renderer.ScatterPlot-min.js"></script>
-	<script src="js/min/Rickshaw.Graph.Renderer.Stack-min.js"></script>
-	<script src="js/min/Rickshaw.Graph.RangeSlider-min.js"></script>
-	<script src="js/min/Rickshaw.Graph.RangeSliderY-min.js"></script>		
-	<script src="js/min/Rickshaw.Graph.RangeSlider.Preview-min.js"></script>
-	<script src="js/min/Rickshaw.Graph.HoverDetail-min.js"></script>
-	<script src="js/min/Rickshaw.Graph.Annotate-min.js"></script>
-	<script src="js/min/Rickshaw.Graph.Legend-min.js"></script>
-	<script src="js/min/Rickshaw.Graph.Axis.Time-min.js"></script>
-	<script src="js/min/Rickshaw.Graph.Behavior.Series.Toggle-min.js"></script>
-	<script src="js/min/Rickshaw.Graph.Behavior.Series.Order-min.js"></script>
-	<script src="js/min/Rickshaw.Graph.Behavior.Series.Highlight-min.js"></script>
-	<script src="js/min/Rickshaw.Graph.Smoother-min.js"></script>
-	<script src="js/min/Rickshaw.Fixtures.Time-min.js"></script>
-	<script src="js/min/Rickshaw.Fixtures.Time.Local-min.js"></script>
-	<script src="js/min/Rickshaw.Fixtures.Number-min.js"></script>
-	<script src="js/min/Rickshaw.Fixtures.Color-min.js"></script>
-	<script src="js/min/Rickshaw.Color.Palette-min.js"></script>
-	<script src="js/min/Rickshaw.Graph.Axis.Y-min.js"></script>
+	<script src="js/Rickshaw.js"></script>
+	<script src="js/Rickshaw.Class.js"></script>
+	<script src="js/Rickshaw.Compat.ClassList.js"></script>
+	<script src="js/Rickshaw.Graph.js"></script>
+	<script src="js/Rickshaw.Graph.Renderer.js"></script>
+	<script src="js/Rickshaw.Graph.Renderer.Area.js"></script>
+	<script src="js/Rickshaw.Graph.Renderer.Line.js"></script>
+	<script src="js/Rickshaw.Graph.Renderer.Bar.js"></script>
+	<script src="js/Rickshaw.Graph.Renderer.ScatterPlot.js"></script>
+	<script src="js/Rickshaw.Graph.Renderer.Stack.js"></script>
+	<script src="js/Rickshaw.Graph.RangeSlider.js"></script>
+	<script src="js/Rickshaw.Graph.RangeSliderY.js"></script>		
+	<script src="js/Rickshaw.Graph.RangeSlider.Preview.js"></script>
+	<script src="js/Rickshaw.Graph.HoverDetail.js"></script>
+	<script src="js/Rickshaw.Graph.Annotate.js"></script>
+	<script src="js/Rickshaw.Graph.Legend.js"></script>
+	<script src="js/Rickshaw.Graph.Axis.Time.js"></script>
+	<script src="js/Rickshaw.Graph.Behavior.Series.Toggle.js"></script>
+	<script src="js/Rickshaw.Graph.Behavior.Series.Order.js"></script>
+	<script src="js/Rickshaw.Graph.Behavior.Series.Highlight.js"></script>
+	<script src="js/Rickshaw.Graph.Smoother.js"></script>
+	<script src="js/Rickshaw.Fixtures.Time.js"></script>
+	<script src="js/Rickshaw.Fixtures.Time.Local.js"></script>
+	<script src="js/Rickshaw.Fixtures.Number.js"></script>
+	<script src="js/Rickshaw.Fixtures.Color.js"></script>
+	<script src="js/Rickshaw.Color.Palette.js"></script>
+	<script src="js/Rickshaw.Graph.Axis.Y.js"></script>
 	
 	
 	<!--Mapbox -->
@@ -631,7 +631,7 @@ function getStreamInfo(){
 	var dataStreams 	= [];	//Data for the devices selected obtained from the catalog	
 	var catIndex 		= [];	//Searchable list of ids from catalog
 	var results 		= getCatalog();	
-	var feeds 			= getFeeds();
+	var feeds 			= getFeeds(results);	//Results passed to function incase that no feeds are selected - in which case all live feeds graphed
 	
 	for (var h = 0; h< results.length; h++){	catIndex.push(results[h].id);}
 	for (var i = 0; i < feeds.length; i++){
@@ -714,14 +714,21 @@ function getData(data){
 }
 		
 //Generic Functions
-function getFeeds(){
-	var feedIDs = "<?php echo $feedno; ?>";
-	/* 
-		Change needed here 
-		- grab the live feeds list or first element of - get last 5 - 7 days?
-	*/
-	
-	if ( feedIDs == "") feedIDs ="1734847623";
+function getFeeds(myResults){
+	var feedIDs = "<?php echo $feedno; ?>";	
+	if ( feedIDs == ""){
+		 console.log("No Feed IDs provided so all live feeds to be graphed");
+		 feedIDs = "";
+
+
+		 for (i = 0; i< myResults.length; i++){
+			 if (myResults[i].status === "live")
+			 {
+			 	feedIDs += myResults[i].id + ",";
+			 }
+		 }
+		 feedIDs = feedIDs.substring(0, feedIDs.length - 1);
+	}
 	
 	//Php Will return a string rather than an array.
 	var feedIDarray = feedIDs.split(",");
@@ -731,13 +738,14 @@ function getFeeds(){
 function getStartEnd(){
 
 	var timeRange = {start:"<?php echo $startT; ?>", end: "<?php echo $endT; ?>" };	
-	/* 
-		Change needed here 
-		- Set to last 5 - 7 days
-	*/
 	
 	if (timeRange.start == ""){
-		timeRange = {start: "2014-02-22T14:35:04+00:00", end: "2014-02-27T14:35:04+00:00" };
+		//If no time range provided give data from start of day.
+		var myStart = moment().startOf('day');
+		var myStartString = moment.utc(myStart).format();
+		var myEnd = moment();
+		var myEndString = moment.utc(myEnd).format();
+		timeRange = {start: myStartString, end: myEndString };			
 	}
 	return timeRange;
 }
