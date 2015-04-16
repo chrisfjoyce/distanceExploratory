@@ -534,7 +534,7 @@
 	
 	function createDeviceList(myDevices){
 		var devHtml = "";
-		var liveHtml = "<h3>Devices with fresh data <i>(less than 30 mins old)</i></h3><ul>";
+		var liveHtml = "<h3>Devices with freshest data</h3><ul>";
 		var deadHtml = "</ul><br><h3>Other Devices</h3><ul>";
 		for (i = 0; i< myDevices.length; i++)
 		{
